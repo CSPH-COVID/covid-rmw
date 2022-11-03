@@ -1,4 +1,5 @@
 # PARTITIONING ALGORITHM (COLORADO)
+# random comment
 
 # get the individual counties for the state
 co_counties <- unique(state_CO$dest_fips)
