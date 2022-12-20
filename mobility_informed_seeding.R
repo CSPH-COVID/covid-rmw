@@ -1,10 +1,10 @@
 # MOBILITY INFORMED SEEDING ALGORITHM
 
 # launch setup options
-source("/Users/emwu9912/Documents/CU Anschutz/COVID-19 Modeling Group/Analysis/setup.R")
+source("/Users/emwu9912/RProjects/covid-analysis/setup.R")
 # launch sampling fraction algorithm
 #source("./CSTE/Mobility-Informed Seeding/sampling_frac.R")
-# if you don't want to run the sampling fraction algorithm again, just run this value
+# if you don't want to run the sampling fraction algorithm again, just import this value
 sample_frac <- 0.0673167
 
 # read in SafeGraph mobility seed data
