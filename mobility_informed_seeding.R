@@ -3,9 +3,9 @@
 # launch setup options
 source("/Users/emwu9912/RProjects/covid-analysis/setup.R")
 # launch sampling fraction algorithm
-#source("./CSTE/Mobility-Informed Seeding/sampling_frac.R")
+#source("/Users/emwu9912/RProjects/covid-rmw-analysis/sampling_frac.R")
 # if you don't want to run the sampling fraction algorithm again, just import this value
-sample_frac <- 0.0673167
+sample_frac <- 0.06781175
 
 # read in SafeGraph mobility seed data
 sg_seed <- fread("./CSTE/Data Sets/cste_seed.csv.gz")
@@ -93,45 +93,29 @@ sg_2019 <- sg_seed_total %>%
 
 visitor_compare <- ggplot(data = sg_seed_total) +
   geom_line(aes(x = measure_date, y = region_visitors,
-                group = dest_region, color = dest_region), size = 1.5) +
+                group = dest_region, color = dest_region), linewidth = 1.5) +
   labs(x = NULL, y = "Visitor Count**",
        caption = paste("Last Updated", Sys.Date())) +
   ggtitle("Estimated Number of Daily Visitors to the Rocky Mountain West Regions, 2019*") +
   scale_x_date(date_labels="%b %Y", date_breaks="2 months") +
   scale_y_continuous(labels = scales::comma) +
-  guides(color=guide_legend(override.aes=list(size=8), nrow = 3)) +
+  guides(color = guide_legend(override.aes = list(linewidth = 8), nrow = 3)) +
   ggplot_theme; visitor_compare
 ggsave("./CSTE/Figures/visitor_compare.png", height = 15, width = 22, plot = visitor_compare)
 
 # draw a line to represent averaging out the visitation over the course of the year
 visitor_compare_avg <- ggplot(data = sg_seed_total) +
   geom_line(aes(x = measure_date, y = region_visitors,
-                group = dest_region, color = dest_region), size = 1.5) +
+                group = dest_region, color = dest_region), linewidth = 1.5) +
   geom_hline(data = sg_2019, aes(yintercept = avg_region_visitors, color = dest_region), size = 1) +
   labs(x = NULL, y = "Visitor Count**",
        caption = paste("Last Updated", Sys.Date())) +
   ggtitle("Estimated Number of Daily Visitors to the Rocky Mountain West Regions, 2019*") +
   scale_x_date(date_labels="%b %Y", date_breaks="2 months") +
   scale_y_continuous(labels = scales::comma) +
-  guides(color=guide_legend(override.aes=list(size=8), nrow = 3)) +
+  guides(color = guide_legend(override.aes = list(linewidth = 8), nrow = 3)) +
   ggplot_theme; visitor_compare_avg
 ggsave("./CSTE/Figures/visitor_compare_avg.png", height = 15, width = 22, plot = visitor_compare_avg)
-
-
-# compare number of daily visitors for 2019 for the 21 regions over time (smoothed)
-visitor_compare_smoothed <- ggplot(data = sg_seed_total) +
-  geom_smooth(aes(x = measure_date, y = region_visitors,
-                  group = dest_region, color = dest_region), size = 1.8) +
-  labs(x = NULL, y = "Visitor Count (Smoothed)**",
-       caption = paste("Last Updated", Sys.Date())) +
-  ggtitle("Estimated Number of Visitors to the Rocky Mountain West Regions, 2019*") +
-  scale_x_date(date_labels="%b %Y", date_breaks="2 months") +
-  scale_y_continuous(labels = scales::comma) +
-  guides(color=guide_legend(override.aes=list(size=8), nrow = 3)) +
-  ggplot_theme; visitor_compare_smoothed
-ggsave("./CSTE/Figures/visitor_compare_smoothed.png", height = 15, width = 22, plot = visitor_compare_smoothed)
-
-
 
 # now create tables with average visitors and kappa value for 2019, 2020, and 2021
 years <- c("2019", "2020", "2021")
@@ -165,9 +149,99 @@ sg_seed_all <- left_join(left_join(sg_seed_2019, sg_seed_2020), sg_seed_2021) %>
                          "ute", "utn", "uts", "utw", "wye", "wyn", "wyw"))
 
 sg_seed_table <- sg_seed_all %>%
-  select(dest_region, contains("kappa"))
+  select(dest_region, contains("kappa")) %>%
+  # arrange by number of visitors
+  arrange(desc(kappa2019)) %>%
+  rename(`2019` = kappa2019,
+         `2020` = kappa2020,
+         `2021` = kappa2021)
 
-# now subset each region into its own dataframe (we will use this for plotting)
+# transpose to long
+sg_seed_table_long <- reshape2::melt(sg_seed_table, id.vars = "dest_region") %>%
+  arrange(dest_region)
+
+# sort to make the y-axis read in alphabetical order on the way down
+sg_seed_table_long$dest_region <- factor(sg_seed_table_long$dest_region,
+                                         levels = rev(unique(sg_seed_table_long$dest_region)))
+
+heatmap_years <- ggplot(data = sg_seed_table_long) +
+  geom_tile(aes(x = variable, y = dest_region, fill = value)) +
+  labs(x = NULL, y = NULL, fill = "Visitation Relative to Colorado North",
+       caption = paste("Last Updated", Sys.Date())) +
+  ggtitle("Yearly Visitation Patterns to Rocky Mountain West Regions, 2019-2021") +
+  scale_fill_gradient(low = "cyan1", high = "royalblue4") +
+  theme(legend.position = "bottom",
+        plot.margin=unit(c(5, 30, 10, 10), "pt"),
+        legend.key.width = unit(2, "cm"),
+        plot.title = element_text(hjust = 0.5)); heatmap_years
+ggsave("./CSTE/Figures/visit_heatmap_years.png", height = 7, width = 10, plot = heatmap_years)
+
+
+# now break down the year 2019 into three parts to look at seasonal trends
+sg_seed_seasonal <- sg_seed_total %>%
+  mutate(season = case_when(measure_date <= "2019-04-30" ~ "January-April",
+                            measure_date >= "2019-05-01" & measure_date <= "2019-08-31" ~ "May-August",
+                            measure_date >= "2019-09-01" & measure_date <= "2019-12-31" ~ "September-December"))
+
+# now create tables with average visitors and kappa value for January-April, May-Auguswt, and September-December
+seasons <- c("January-April", "May-August", "September-December")
+df <- list()
+
+for (i in 1:length(seasons)){
+  df <- sg_seed_seasonal %>%
+    filter(season == seasons[i]) %>%
+    group_by(measure_date, dest_region) %>%
+    group_by(dest_region) %>%
+    summarize(avg_region_visitors = round(mean(region_visitors))) %>%
+    # calculate kappa, which is the ratio of other regions' visitation to Colorado North
+    mutate(kappa = avg_region_visitors/avg_region_visitors[dest_region == "Colorado North"])
+  assign(paste0("sg_seed_", seasons[i]), df, envir = .GlobalEnv)
+}
+
+`sg_seed_January-April` <- `sg_seed_January-April` %>%
+  rename(avg_jan_apr = avg_region_visitors,
+         kappa_jan_apr = kappa)
+`sg_seed_May-August` <- `sg_seed_May-August` %>%
+  rename(avg_may_aug = avg_region_visitors,
+         kappa_may_aug = kappa)
+`sg_seed_September-December` <- `sg_seed_September-December` %>%
+  rename(avg_sep_dec = avg_region_visitors,
+         kappa_sep_dec = kappa)
+
+sg_seed_all_seasonal <- left_join(left_join(`sg_seed_January-April`, `sg_seed_May-August`), `sg_seed_September-December`) %>%
+  mutate(region_abbr = c("coe", "con", "cow", "ide", "idn", "ids", "idw",
+                         "mte", "mtn", "mtw", "nme", "nmn", "nms", "nmw",
+                         "ute", "utn", "uts", "utw", "wye", "wyn", "wyw"))
+
+sg_seed_table_seasonal <- sg_seed_all_seasonal %>%
+  select(dest_region, contains("kappa")) %>%
+  arrange(desc(kappa_jan_apr)) %>%
+  rename(`Jan - Apr` = kappa_jan_apr,
+         `May - Aug` = kappa_may_aug,
+         `Sep - Dec` = kappa_sep_dec)
+
+# transpose to long
+sg_seed_table_seasonal_long <- reshape2::melt(sg_seed_table_seasonal, id.vars = "dest_region") %>%
+  arrange(dest_region)
+
+# sort to make the y-axis read in alphabetical order on the way down
+sg_seed_table_seasonal_long$dest_region <- factor(sg_seed_table_seasonal_long$dest_region,
+                                         levels = rev(unique(sg_seed_table_seasonal_long$dest_region)))
+
+heatmap_seasons <- ggplot(data = sg_seed_table_seasonal_long) +
+  geom_tile(aes(x = variable, y = dest_region, fill = value)) +
+  labs(x = NULL, y = NULL, fill = "Visitation Relative to Colorado North",
+       caption = paste("Last Updated", Sys.Date())) +
+  ggtitle("Seasonal Visitation Patterns to Rocky Mountain West Regions, 2019") +
+  scale_fill_gradient(low = "greenyellow", high = "darkolivegreen") +
+  theme(legend.position = "bottom",
+        plot.margin=unit(c(5, 30, 10, 10), "pt"),
+        legend.key.width = unit(2, "cm"),
+        plot.title = element_text(hjust = 0.5),
+        axis.text.x=element_text(angle=30, margin=margin(12, 0, 0, 0, "pt"))); heatmap_seasons
+ggsave("./CSTE/Figures/visit_heatmap_seasons.png", height = 7, width = 10, plot = heatmap_seasons)
+
+# now subset each region into its own dataframe (we will use this to plot the individual states)
 regions <- unique(sg_seed_all$dest_region)
 abbrs <- unique(sg_seed_all$region_abbr)
 
@@ -198,16 +272,12 @@ for (i in 1:length(regions)) {
   # call back our empty list so we can store all our outputs
   visitplot[[i]] <- ggplot(data = visit_ds_all %>%
                              filter(region_abbr == abbrs[i])) +
-    geom_step(aes(x = date, y = kappa), color = "darkblue", size = 1.3) +
+    geom_step(aes(x = date, y = kappa), color = "darkblue", linewidth = 1.3) +
     labs(x = NULL, y = NULL) +
-    # index over the names of the regions to create the titles
-    #ggtitle(paste(regions[i])) +
     scale_x_date(date_labels="%Y", date_breaks = "1 year") +
     scale_y_continuous(limits = c(0, 1.1), breaks = seq(0, 1.1, 0.2)) +
     ggplot_theme +
     theme(plot.margin = margin(1, 1, 1, 1, "cm")); visitplot[[i]]
-  # now write the plots to the database
-  #ggsave(paste0("./CSTE/Figures/kappa_", abbrs[i], ".png"), height = 10, width = 15, plot = visitplot[[i]])
 }
 
 kappa_co <- ggarrange(visitplot[[1]], visitplot[[2]], visitplot[[3]],
@@ -260,7 +330,6 @@ for (i in 1:length(seasons)){
   df <- sg_seed_seasonal %>%
     filter(season == seasons[i]) %>%
     group_by(measure_date, dest_region) %>%
-    #summarize(region_visitors = sum(est_visitors)) %>%
     group_by(dest_region) %>%
     summarize(avg_region_visitors = round(mean(region_visitors))) %>%
     # calculate kappa, which is the ratio of other regions' visitation to Colorado North
@@ -286,7 +355,7 @@ sg_seed_all_seasonal <- left_join(left_join(`sg_seed_January-April`, `sg_seed_Ma
 sg_seed_table_seasonal <- sg_seed_all_seasonal %>%
   select(dest_region, contains("kappa"))
 
-# now subset each region into its own dataframe (we will use this for plotting)
+# now subset each region into its own dataframe (we will use this to plot the individual states)
 regions <- unique(sg_seed_all_seasonal$dest_region)
 abbrs <- unique(sg_seed_all_seasonal$region_abbr)
 
@@ -317,16 +386,12 @@ for (i in 1:length(regions)) {
   # call back our empty list so we can store all our outputs
   visitplot_seasonal[[i]] <- ggplot(data = visit_ds_all_seasonal %>%
                              filter(region_abbr == abbrs[i])) +
-    geom_step(aes(x = date, y = kappa), color = "purple", size = 1.3) +
+    geom_step(aes(x = date, y = kappa), color = "purple", linewidth = 1.3) +
     labs(x = NULL, y = NULL) +
-    # index over the names of the regions to create the titles
-    #ggtitle(paste(regions[i])) +
     scale_x_date(date_labels="%b", date_breaks = "2 months") +
     scale_y_continuous(limits = c(0, 1.1), breaks = seq(0, 1.1, 0.2)) +
     ggplot_theme +
     theme(plot.margin = margin(1, 1, 1, 1, "cm")); visitplot_seasonal[[i]]
-  # now write the plots to the database
-  #ggsave(paste0("./CSTE/Figures/kappa_", abbrs[i], ".png"), height = 10, width = 15, plot = visitplot[[i]])
 }
 
 kappa_co_seasonal <- ggarrange(visitplot_seasonal[[1]], visitplot_seasonal[[2]], visitplot_seasonal[[3]],
@@ -367,6 +432,4 @@ kappa_wy_seasonal <- ggarrange(visitplot_seasonal[[19]], visitplot_seasonal[[20]
                       ncol = 2, nrow = 2,
                       font.label = list(size = 20)); kappa_wy_seasonal
 ggsave("./CSTE/Figures/kappa_wy_seasonal.png", height = 10, width = 10, plot = kappa_wy_seasonal)
-
-
 
