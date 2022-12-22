@@ -1,4 +1,4 @@
-# MOBILITY INFORMED SEEDING ALGORITHM
+### MOBILITY INFORMED SEEDING ALGORITHM ###
 
 # launch setup options
 source("/Users/emwu9912/RProjects/covid-analysis/setup.R")
