@@ -1,19 +1,22 @@
-### INVESTIGATING AVERAGE HOSPITAL LENGTH OF STAY ###
+####################################################
+####### COVID-19 RMW ANALYSIS: HOSPITAL LOS ########
+################## FEBRUARY 2023 ###################
+####################### EJW ########################
+####################################################
+
+# Purpose:
+# To quantify hospital length of stay (LOS) parameters
+# by age group and over time
+
+#####################################################
 
 # launch setup options
 source("/Users/emwu9912/Documents/CU Anschutz/COVID-19 Modeling Group/Analysis/setup.R")
 
-# source BigQuery DUA credentials
-#source("./Admin Documents/Training and Access/bq_credentials_dua.R")
-
-# read in COPHS hospitalization data from BigQuery
-#sql <- "SELECT * FROM `raw.cophs_hospitalization_data`"
-#tb <- bq_project_query(x="co-covid-models-dua", query=sql)
-#hosp <- bq_table_download(tb)
-
+# read in COPHS hospitalization data
 hosp <- read.csv("./CDPHE DUA Data/cophs_hospitalization_data.csv")
 
-# clean up anomalies from hospitalization data
+# clean up anomalies
 hosp1 <- hosp %>%
   mutate(age = floor(as.numeric(difftime(Sys.Date(), dob, units = "weeks"))/52.25),
          admit_date = as.Date(hospital_admission_date),
@@ -148,7 +151,7 @@ ggsave("./CSTE/Figures/readmit_age_density.png", height = 10, width = 20, plot =
 # now that we've investigated the readmissions, let's take the following approach
 # for patients with only one hospital visit, treat as independent events
 # for patients who are readmitted within 30 days, combine lengths of stay
-# for patients who are readmitted outside of 30 days, treat those as independent events
+# for patients who are readmitted outside of 30 days, treat as independent events
 hosp3 <- hosp2 %>%
   group_by(ID) %>%
   arrange(ID, admit_date) %>%
@@ -202,7 +205,45 @@ for(i in 1:length(ages)) {
   assign(paste0("df_ages", i), df_ages[[i]], envir = .GlobalEnv)
 }
 
-# now create hospital census to overlay LOS plots
+hosp_los_plot <- list()
+for (i in 1:length(ages)){
+  hosp_los_plot[[i]] <- ggplot(data = los_summary %>%
+                                 filter(age_group == ages[i])) +
+    geom_bar(aes(x = admit_date1, y = median_los), fill = "darkorange3", stat = "identity", alpha = 0.8) +
+    annotate("rect", xmin = as.Date("2020-12-01"), xmax = as.Date("2022-12-01"), ymin = 0, ymax = Inf, fill = "firebrick", alpha = 0.4) +
+    annotate("rect", xmin = as.Date("2021-12-01"), xmax = as.Date("2022-12-31"), ymin = 0, ymax = Inf, fill = "grey2", alpha = 0.4) +
+    annotate("text", x = as.Date("2020-12-30"), y = 5.75, size = 7, angle = 90, label = "mAb introduction") + 
+    annotate("text", x = as.Date("2021-12-30"), y = 5.75, size = 7, angle = 90, label = "Omicron takeover") +
+    labs(x = "Hospital Admission Month", y = "Median Hospital Length of Stay (Days)") +
+    ggtitle(ages[i]) +
+    scale_x_date(date_labels="%b %Y", date_breaks="4 months", limits = as.Date(c("2020-03-01", "2022-12-31"))) +
+    scale_y_continuous(limits = c(0, 8), breaks = seq(0, 8, 2)) +
+    guides(fill = guide_legend(override.aes = list(size = 8))) +
+    ggplot_theme; hosp_los_plot
+  ggsave(paste0("./CSTE/Figures/hosp_los_plot", i, ".png"), height = 6, width = 12, plot = hosp_los_plot[[i]])
+}
+
+hosp_los_plot_mean <- list()
+for (i in 1:length(ages)){
+  hosp_los_plot_mean[[i]] <- ggplot(data = los_summary %>%
+                                 filter(age_group == ages[i])) +
+    geom_bar(aes(x = admit_date1, y = mean_los), fill = "dodgerblue4", stat = "identity", alpha = 0.8) +
+    annotate("rect", xmin = as.Date("2020-12-01"), xmax = as.Date("2022-12-01"), ymin = 0, ymax = Inf, fill = "firebrick", alpha = 0.4) +
+    annotate("rect", xmin = as.Date("2021-12-01"), xmax = as.Date("2022-12-31"), ymin = 0, ymax = Inf, fill = "grey2", alpha = 0.4) +
+    annotate("text", x = as.Date("2020-12-30"), y = 16, size = 7, angle = 90, label = "mAb introduction") + 
+    annotate("text", x = as.Date("2021-12-30"), y = 16, size = 7, angle = 90, label = "Omicron takeover") +
+    labs(x = NULL, y = NULL) +
+    labs(x = "Hospital Admission Month", y = "Mean Hospital Length of Stay") +
+    ggtitle(ages[i]) +
+    scale_x_date(date_labels="%b %Y", date_breaks="4 months", limits = as.Date(c("2020-03-01", "2022-12-31"))) +
+    scale_y_continuous(limits = c(0, 25), breaks = seq(0, 25, 5)) +
+    guides(fill = guide_legend(override.aes = list(size = 8))) +
+    ggplot_theme; hosp_los_plot_mean
+  ggsave(paste0("./CSTE/Figures/hosp_los_plot_mean", i, ".png"), height = 6, width = 12, plot = hosp_los_plot_mean[[i]])
+}
+
+# side analysis: does hospital LOS change during surges?
+# create hospital census to overlay LOS plots
 # subset the data into each of the three age groups
 df_age <- list()
 df_age2 <- list()
@@ -238,51 +279,6 @@ for (i in 1:length(ages)){
     select(date, median_los, hospitalized) %>%
     mutate(median_los_all = zoo::na.locf(median_los),
            hospitalized = hospitalized/100)
-  #assign(paste0("df_los", i), df_los[[i]], envir = .GlobalEnv)
-}
-
-hosp_los_plot <- list()
-for (i in 1:length(ages)){
-  hosp_los_plot[[i]] <- ggplot(data = los_summary %>%
-                                 filter(age_group == ages[i])) +
-    geom_bar(aes(x = admit_date1, y = median_los), fill = "darkorange3", stat = "identity", alpha = 0.8) +
-  #  annotate("rect", xmin = as.Date("2020-11-20"), xmax = as.Date("2022-11-15"), alpha = 0.4,
-  #           ymin = 0, ymax = Inf, fill = "darkred") +
-  #  annotate("rect", xmin = as.Date("2021-12-10"), xmax = as.Date("2022-12-31"), alpha = 0.4,
-  #           ymin = 0, ymax = Inf, fill = "grey3") +
-  #  annotate("text", x = as.Date("2021-02-10"), y = 7.5, label = "mAb ramp up", size = 8) +
-  #  annotate("text", x = as.Date("2022-03-15"), y = 7.5, label = "omicron takeover", size = 8) +
-    labs(x = NULL, y = NULL) +
-    #labs(x = "Hospital Admission Month", y = "Median Hospital Length of Stay (Days)") +
-    #      caption = paste("Last Updated", Sys.Date())) +
-    ggtitle(ages[i]) +
-    scale_x_date(date_labels="%b %Y", date_breaks="4 months", limits = as.Date(c("2020-03-01", "2022-12-31"))) +
-    scale_y_continuous(limits = c(0, 8), breaks = seq(0, 8, 2)) +
-    guides(fill = guide_legend(override.aes = list(size = 8))) +
-    ggplot_theme; hosp_los_plot
-  ggsave(paste0("./CSTE/Figures/hosp_los_plot", i, ".png"), height = 6, width = 12, plot = hosp_los_plot[[i]])
-}
-
-hosp_los_plot_mean <- list()
-for (i in 1:length(ages)){
-  hosp_los_plot_mean[[i]] <- ggplot(data = los_summary %>%
-                                 filter(age_group == ages[i])) +
-    geom_bar(aes(x = admit_date1, y = mean_los), fill = "dodgerblue4", stat = "identity", alpha = 0.8) +
-    #annotate("rect", xmin = as.Date("2020-11-20"), xmax = as.Date("2022-11-15"), alpha = 0.4,
-    #         ymin = 0, ymax = Inf, fill = "darkred") +
-    #annotate("rect", xmin = as.Date("2021-12-10"), xmax = as.Date("2022-12-31"), alpha = 0.4,
-    #         ymin = 0, ymax = Inf, fill = "grey3") +
-    #annotate("text", x = as.Date("2021-02-10"), y = 18, label = "mAb ramp up", size = 8) +
-    #annotate("text", x = as.Date("2022-03-15"), y = 18, label = "omicron takeover", size = 8) +
-    labs(x = NULL, y = NULL) +
-    # labs(x = "Hospital Admission Month", y = "Mean Hospital Length of Stay",
-    #      caption = paste("Last Updated", Sys.Date())) +
-    ggtitle(ages[i]) +
-    scale_x_date(date_labels="%b %Y", date_breaks="4 months", limits = as.Date(c("2020-03-01", "2022-12-31"))) +
-    scale_y_continuous(limits = c(0, 23), breaks = seq(0, 20, 5)) +
-    guides(fill = guide_legend(override.aes = list(size = 8))) +
-    ggplot_theme; hosp_los_plot_mean
-  ggsave(paste0("./CSTE/Figures/hosp_los_plot_mean", i, ".png"), height = 6, width = 12, plot = hosp_los_plot_mean[[i]])
 }
 
 hosp_los_overlay_plot <- list()
@@ -293,8 +289,7 @@ for (i in 1:length(ages)){
     geom_bar(aes(x = date, y = hospitalized, fill = "color1"), stat = "identity", alpha = 0.8) +
     geom_bar(aes(x = date, y = median_los_all, fill = "color2"), stat = "identity", alpha = 0.6) +
     labs(x = NULL, y = NULL) +
-    # labs(x = "Hospital Admission Month", y = "Median Hospital Length of Stay",
-    #      caption = paste("Last Updated", Sys.Date())) +
+    labs(x = "Hospital Admission Month", y = "Median Hospital Length of Stay") +
     ggtitle(ages[i]) +
     scale_x_date(date_labels="%b %Y", date_breaks="2 months", limits = as.Date(c("2020-03-01", "2022-12-31"))) +
     scale_y_continuous(limits = c(0, 15), breaks = seq(0, 15, 3),
@@ -314,119 +309,13 @@ for (i in 1:length(ages)){
 # second time stamp is 12/01/2020 (when mAb's first became available, rounded to the nearest first of the month)
 # third time stamp is 12/01/2021 (when Omicron started to take over, rounded to the nearest first of the month)
 los_summary_sections <- los_summary %>%
-  mutate(timestamp_new = case_when(admit_date1 <= "2020-11-01" ~ as.Date("2020-01-01"),
+  mutate(timestamp = case_when(admit_date1 <= "2020-11-01" ~ as.Date("2020-01-01"),
                                 admit_date1 >= "2020-12-01" & admit_date1 <= "2021-11-01" ~ as.Date("2020-12-01"),
                                 TRUE ~ as.Date("2021-12-01"))) %>%
-  group_by(age_group, timestamp_new) %>%
+  group_by(age_group, timestamp) %>%
   # for each of our new timestamps, compute the median of the means
-  summarize(los_param_new = median(mean_los)) %>%
-  #mutate(timestamp_original = as.Date(c("2020-01-01", "2020-08-01", "2020-12-03"))) %>%
+  summarize(los_param = median(mean_los)) %>%
   ungroup() %>%
-  # manually input the original LOS parameters
-  mutate(los_param_original = c(5.8303, 5.5747, 5.5747, 8.505509701, 6.898889621, 6.898889621,
-                        10.53665902, 8.136581647,8.136581647)) %>%
   # reorder variables
-  select(age_group, timestamp_original, los_param_original, timestamp_new, los_param_new)
-
-
-
-
-
-
-
-
-
-
-
-
-
-       
-# until we discuss this as a team, let's treat every hospitalization as an independent event for now
-
-
-# EXTRA CODE BELOW #
-
-
-
-# look at the age distribution of readmissions within 30 days
-#readmit_patients$county_of_residence <- as.ordered(readmit_patients$county_of_residence)
-#readmit_patients_county <- readmit_patients %>%
-#group_by(county_of_residence) %>%
-#add_count(county_of_residence) %>%
-#mutate(weight = 1/nn
-
-
-#readmit_patients$weight <- 1/nrow(readmit_patients)
-#readmit_hist_county <- ggplot(data = readmit_patients) +
-#geom_col(aes(x = county_of_residence, y = weight), color = "darkorchid") +
-#geom_vline(aes(xintercept = mean(age)), color = "goldenrod", linetype = "dashed", linewidth = 1) +
-#geom_vline(aes(xintercept = median(age)), color = "dodgerblue2", linetype = "dashed", linewidth = 1) +
-#annotate("text", x = mean(time_to_readmit$age) - 4, y = 700,
-#angle = 90, label = paste("mean age", round(mean(time_to_readmit$age), 1), "years"), color = "goldenrod", size = 6) +
-#annotate("text", x = median(time_to_readmit$age) + 3, y = 700,
-#angle = 90, label = paste("median age", median(time_to_readmit$age), "years"), color = "dodgerblue2", size = 6) +
-#labs(x = "County of Residence", y = "Share of Total Hospitalizations") +
-#ggtitle("Distribution of County of Residence Among COVID-19 Hospital Patients Readmitted Within 30 Days",
-#subtitle = paste(nrow, "Hospitalizations Among Colorado Residents, November 2020 to January 2023")) +
-#scale_y_continuous(limits = c(0, 0.15), breaks = seq(0, 0.15, 0.03)) +
-#ggplot_theme +
-#theme(axis.text.x = element_text(size = 12, angle = 90, margin=margin(10, 0, 20, 0, "pt"))); readmit_hist_county
-#ggsave("./CSTE/Figures/readmit_county.png", height = 10, width = 20, plot = readmit_hist_county)
-
-
-
-#labs(x = NULL, y = NULL) +
-# labs(x = "Hospital Admission Month", y = "Median Hospital Length of Stay",
-#      caption = paste("Last Updated", Sys.Date())) +
-#ggtitle(ages[i]) +
-#scale_x_date(date_labels="%b %Y", date_breaks="2 months", limits = as.Date(c("2020-03-01", "2022-12-31"))) +
-#scale_y_continuous(limits = c(0, 8), breaks = seq(0, 8, 1)) +
-#guides(fill = guide_legend(override.aes = list(size = 8))) +
-#ggplot_theme; hosp_los_plot
-#ggsave(paste0("./CSTE/Figures/hosp_los_plot", i, ".png"), height = 10, width = 18, plot = hosp_los_plot[[i]])
-
-
-
-
-
-
-
-# side analysis to look for repeat hospitalizations
-
-#hosp_readmit <- hosp1 %>%
-  #add_count(dob, gender, zip_code, county_of_residence, race, ethnicity) #%>%
-  #filter(discharge_transfer_death_disposition == "Another Hospital") %>%
-  #arrange(dob, gender, zip_code, county_of_residence, race, ethnicity, discharge_transfer_death_disposition) %>%
-  #select(facility_name, dob, hospital_admission_date, discharge_transfer_death_date, discharge_transfer_death_disposition, los, n) %>%
-  #filter(n > 1,
-        # discharge_transfer_death_disposition == "Another Hospital")
-  #filter(n > 1)
-
-# frequency table for number of times a patient has been admitted
-#table(hosp_readmit$n)
-#as.data.frame(table(hosp_readmit$n))
-
-# the add_count function counts the number of occurrences something has,
-# but it repeats that number for however many occurrences there are
-# for example, someone who has been to the hospital 8 times will have the number 8, 8 times
-# so, we need to divide that number by the number of times it shows up
-# to get a count of the actual patients who have shown up n times at the hospital
-
-
-
-
-
-
-
-
-
-# create a clustered bar chart of length of stay for each age group and phase of the pandemic
-# los_bar <- ggplot(data = df_los) +
-#   geom_bar(aes(x = age_group, y = mean_los, fill = phase), position = "dodge", stat = "identity")+
-#   labs(x = "Age Group", y = "Mean Hospital Length of Stay (Days)",
-#        caption = paste("Last Updated", Sys.Date())) +
-#   ggtitle("Average Length of Stay Among Hospitalized COVID-19 Cases") + 
-#   guides(fill=guide_legend(nrow=3, override.aes = list(size = 8))) +
-#   ggplot_theme; los_bar
-# ggsave("./Figures/Hospitalization Analysis/los_bar.png", height = 10, width = 15, plot = los_bar)
+  select(age_group, timestamp, los_param)
 
