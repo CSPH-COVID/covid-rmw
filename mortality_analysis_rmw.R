@@ -481,7 +481,6 @@ for (i in 1:length(ages)){
                filter(age_group == ages[i]), aes(x = date1, y = dh, fill = "color1"),
              stat = "identity", alpha = 0.8) +
     labs(x = NULL, y = "Death Fraction Among Hospitalized") +
-    #labs(x = NULL, y = NULL) +
     ggtitle(paste0(ages[i])) +
     scale_x_date(date_labels = "%b %Y", date_breaks = "4 months") +
     scale_y_continuous(limits = c(0, 0.61), breaks = seq(0, 0.6, 0.2)) +
@@ -570,7 +569,6 @@ for (i in 1:length(ages)){
                filter(age_group == ages[i]), aes(x = date1, y = dnh), fill = "darkblue",
              stat = "identity", alpha = 0.8) +
     labs(x = "Case Report Month", y = "Death Fraction Among Non-Hospitalized") +
-    #labs(x = NULL, y = NULL) +
     ggtitle(paste0(ages[i])) +
     scale_x_date(date_labels = "%b %Y", date_breaks = "4 months") +
     scale_y_continuous(limits = c(0, 0.4), breaks = seq(0, 0.4, 0.1)) +
@@ -587,5 +585,8 @@ dnh_summary_sections <- dnh_all %>%
   group_by(age_group, timestamp) %>%
   # for each of our new timestamps, compute the mean death fraction
   summarize(dnh_param = mean(dnh)) %>%
-  #mutate(timestamp_original = as.Date(c("2020-01-01", "2020-07-01", "2020-09-30", "2020-12-01"))) %>%
   ungroup()
+
+#####################################################
+
+
