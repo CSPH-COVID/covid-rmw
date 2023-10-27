@@ -72,42 +72,6 @@ hosp2 <- hosp1 %>%
   # arrange by patient ID, and within each patient ID, admit date
   arrange(ID, admit_date)
 
-hosp_freq <- hosp2 %>%
-  mutate(period = ifelse(admit_date < as.Date("2021-12-16"), "pre-omicron", "omicron")) #%>%
-  #mutate(region = ifelse(county %in% c("ADAMS", "ARAPAHOE", "BOULDER", "BROOMFIELD", "DENVER", "DOUGLAS", "JEFFERSON"), "Denver Metro", "Non-Denver Metro"))
-
-# look at the age distribution of readmissions within 30 days
-hist_age_preomicron <- ggplot(data = hosp_freq %>% filter(period == "pre-omicron")) +
-  geom_histogram(aes(x = age), binwidth = 3,
-                 color = "lightgray", fill = "forestgreen") +
-  labs(x = "Age", y = "Count") +
-  ggtitle("Before Omicron Emergence") +
-  scale_y_continuous(labels = scales::comma) +
-  ggplot_theme +
-  theme(axis.text.x = element_text(size = 18, angle = 0,
-                                   margin=margin(10, 0, 20, 0, "pt")),
-        plot.title=element_text(size=16, face="bold", hjust=0.5, margin=margin(10, 0, 10, 0, "pt"))); hist_age_preomicron
-
-hist_age_omicron <- ggplot(data = hosp_freq %>% filter(period == "omicron")) +
-  geom_histogram(aes(x = age), binwidth = 3,
-                 color = "lightgray", fill = "turquoise4") +
-  labs(x = "Age", y = "Count") +
-  ggtitle("After Omicron Emergence") +
-  scale_y_continuous(labels = scales::comma) +
-  ggplot_theme +
-  theme(axis.text.x = element_text(size = 18, angle = 0,
-                                   margin=margin(10, 0, 20, 0, "pt")),
-        plot.title=element_text(size=16, face="bold", hjust=0.5, margin=margin(10, 0, 10, 0, "pt"))); hist_age_omicron
-
-plot <- ggarrange(hist_age_preomicron, hist_age_omicron, ncol = 2, nrow = 1)
-plot1 <- annotate_figure(plot, top = text_grob("Age Distribution of COVID-19 Hospital Patients",
-                         color = "black", face = "bold", size = 24)); plot1
-
-ggsave("./CSTE/Figures/omicron.png", height = 20, width = 20, plot = plot1)
-
-t.test(age ~ period, data = hosp_freq)
-
-
 # analyze repeat hospitalizations
 
 # summarize the number of observations that have given counts
@@ -169,8 +133,6 @@ ggsave("./CSTE/Figures/time_to_readmit.png", height = 13, width = 15, plot = rea
 readmit_hist_age <- ggplot(data = readmit_patients) +
   geom_histogram(aes(x = age, fill = "color1", group = period), binwidth = 1, color = "white") +
   geom_density(aes(x = age, y = after_stat(count)/n*10000, fill = "color2", group = period), alpha = 0.4) +
-  #geom_vline(aes(xintercept = mean(age)), color = "goldenrod", linetype = "dashed", linewidth = 1) +
-  #geom_vline(aes(xintercept = median(age)), color = "dodgerblue2", linetype = "dashed", linewidth = 1) +
   annotate("text", x = mean(readmit_patients$age) - 4, y = 300,
            angle = 90, label = paste("mean age", round(mean(readmit_patients$age), 1), "years"), color = "goldenrod", size = 6) +
   annotate("text", x = median(readmit_patients$age) + 3, y = 300,
