@@ -1,10 +1,11 @@
 ### REGIONAL PARTITIONING ALGORITHM FOR ROCKY MOUNTAIN WEST STATES ###
 
 # launch setup options
-source("/Users/emwu9912/RProjects/covid-analysis/setup.R")
+source("/Users/emwu9912/Documents/CU Anschutz/COVID-19 Modeling Group/Analysis/setup.R")
+library(data.table)
 
 # read in SafeGraph mobility seed data
-within_region <- fread("./CSTE/Data Sets/cste_within_region_movements.csv.gz")
+within_region <- fread("./CSTE/Data Sets/sg_within_region_movements.csv.gz")
 
 # create an origin county dataset from the US Data library in R, naming all variables with "origin"
 origin_county_fips <- usdata::county_2019[c('fips', 'name', 'state')] %>%
@@ -31,8 +32,8 @@ df <- left_join(left_join(within_region, origin_county_fips,
                 dest_county_fips, by = c("dest_fips" = "dest_fips")) %>%
   # drop observations where the origin state does not match the destination state
   filter(origin_state == dest_state,
-         # restrict the dataset time period to after January 1st, 2021
-         measure_date >= as.Date("2021-01-01"))
+         # restrict the dataset time period
+         measure_date >= "2021-01-01")
 
 # now create individual datasets for each state
 # create an object (factor variable) whose levels are the six unique states
@@ -104,7 +105,6 @@ county_summary <- dfs_co$county_summary
 gs <- lapply(dates_co, function(x) graph.data.frame(state_CO %>% filter(measure_date == x) %>% select(-measure_date)))
 # overall
 dfa2n_co <- cbind(dfa2_co %>% select(c('origin_county', 'dest_county')), dfa2_co %>% select(-c('origin_county', 'dest_county')))
-
 # create adjacency matrices and multiply by their transposes
 g <- graph.data.frame(dfa2n_co)
 adjmat1 <- as.matrix(as_adjacency_matrix(g, attr="share_of_origin"))
@@ -509,7 +509,7 @@ ordered_labels <- data.frame(name=labels(dend_ut)) %>% left_join(county_summary)
 for(k in 2:4){
   png(paste0("./CSTE/Figures/Regional Partitioning/cluster_ut_", k, "groups_color_by_region_direct_contact.png"), height=15, width=9, units='in', res=300)
   par(mar=c(4.1, 2.1, 2.1, 17.1), xpd=TRUE)
-  plot(dend_ut, horiz=TRUE, main = paste0("New Mexico, ", k, " regions"), cex.main = 2)
+  plot(dend_ut, horiz=TRUE, main = paste0("Utah, ", k, " regions"), cex.main = 2)
   title(adj = 0.5)
   dend_ut %>% rect.dendrogram(k=k, border='red', lty=5, lwd=2, horiz=TRUE)
   dev.off()
@@ -606,9 +606,9 @@ ordered_labels <- data.frame(name=labels(dend_wy)) %>% left_join(county_summary)
 for(k in 2:4){
   png(paste0("./CSTE/Figures/Regional Partitioning/cluster_wy_", k, "groups_color_by_region_direct_contact.png"), height=15, width=9, units='in', res=300)
   par(mar=c(4.1, 2.1, 2.1, 17.1), xpd=TRUE)
-  plot(dend_wy, horiz=TRUE, main = paste0("New Mexico, ", k, " regions"), cex.main = 2)
+  plot(dend_wy, horiz=TRUE, main = paste0("Wyoming, ", k, " regions"), cex.main = 2)
   title(adj = 0.5)
-  dend_ut %>% rect.dendrogram(k=k, border='red', lty=5, lwd=2, horiz=TRUE)
+  dend_wy %>% rect.dendrogram(k=k, border='red', lty=5, lwd=2, horiz=TRUE)
   dev.off()
   
   new_regions <- data.frame(new_region=as.factor(cutree(dend_wy, k=k))); new_regions$name <- rownames(new_regions)
