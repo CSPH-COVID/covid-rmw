@@ -1,0 +1,793 @@
+County,County Code,Age Group,Population
+"Ada County, ID",16001,0-4 years,26488
+"Ada County, ID",16001,5-9 years,30850
+"Ada County, ID",16001,10-14 years,35737
+"Ada County, ID",16001,15-19 years,33802
+"Ada County, ID",16001,20-24 years,29576
+"Ada County, ID",16001,25-29 years,34170
+"Ada County, ID",16001,30-34 years,35490
+"Ada County, ID",16001,35-39 years,37166
+"Ada County, ID",16001,40-44 years,35008
+"Ada County, ID",16001,45-49 years,32697
+"Ada County, ID",16001,50-54 years,30981
+"Ada County, ID",16001,55-59 years,30821
+"Ada County, ID",16001,60-64 years ,29701
+"Ada County, ID",16001,65-69 years,26335
+"Ada County, ID",16001,70-74 years,21389
+"Ada County, ID",16001,75-79 years,13209
+"Ada County, ID",16001,80-84 years,7717
+"Ada County, ID",16001,85+ years,6847
+"Adams County, ID",16003,0-4 years,174
+"Adams County, ID",16003,5-9 years,203
+"Adams County, ID",16003,10-14 years,239
+"Adams County, ID",16003,15-19 years,206
+"Adams County, ID",16003,20-24 years,147
+"Adams County, ID",16003,25-29 years,190
+"Adams County, ID",16003,30-34 years,194
+"Adams County, ID",16003,35-39 years,191
+"Adams County, ID",16003,40-44 years,218
+"Adams County, ID",16003,45-49 years,220
+"Adams County, ID",16003,50-54 years,229
+"Adams County, ID",16003,55-59 years,357
+"Adams County, ID",16003,60-64 years ,510
+"Adams County, ID",16003,65-69 years,517
+"Adams County, ID",16003,70-74 years,378
+"Adams County, ID",16003,75-79 years,230
+"Adams County, ID",16003,80-84 years,127
+"Adams County, ID",16003,85+ years,94
+"Bannock County, ID",16005,0-4 years,5715
+"Bannock County, ID",16005,5-9 years,6300
+"Bannock County, ID",16005,10-14 years,6582
+"Bannock County, ID",16005,15-19 years,6569
+"Bannock County, ID",16005,20-24 years,6193
+"Bannock County, ID",16005,25-29 years,6178
+"Bannock County, ID",16005,30-34 years,6150
+"Bannock County, ID",16005,35-39 years,6218
+"Bannock County, ID",16005,40-44 years,5555
+"Bannock County, ID",16005,45-49 years,4663
+"Bannock County, ID",16005,50-54 years,4415
+"Bannock County, ID",16005,55-59 years,4706
+"Bannock County, ID",16005,60-64 years ,5031
+"Bannock County, ID",16005,65-69 years,4660
+"Bannock County, ID",16005,70-74 years,3567
+"Bannock County, ID",16005,75-79 years,2208
+"Bannock County, ID",16005,80-84 years,1323
+"Bannock County, ID",16005,85+ years,1144
+"Bear Lake County, ID",16007,0-4 years,425
+"Bear Lake County, ID",16007,5-9 years,466
+"Bear Lake County, ID",16007,10-14 years,522
+"Bear Lake County, ID",16007,15-19 years,444
+"Bear Lake County, ID",16007,20-24 years,312
+"Bear Lake County, ID",16007,25-29 years,293
+"Bear Lake County, ID",16007,30-34 years,377
+"Bear Lake County, ID",16007,35-39 years,368
+"Bear Lake County, ID",16007,40-44 years,355
+"Bear Lake County, ID",16007,45-49 years,321
+"Bear Lake County, ID",16007,50-54 years,319
+"Bear Lake County, ID",16007,55-59 years,386
+"Bear Lake County, ID",16007,60-64 years ,462
+"Bear Lake County, ID",16007,65-69 years,421
+"Bear Lake County, ID",16007,70-74 years,358
+"Bear Lake County, ID",16007,75-79 years,257
+"Bear Lake County, ID",16007,80-84 years,159
+"Bear Lake County, ID",16007,85+ years,125
+"Benewah County, ID",16009,0-4 years,507
+"Benewah County, ID",16009,5-9 years,599
+"Benewah County, ID",16009,10-14 years,643
+"Benewah County, ID",16009,15-19 years,564
+"Benewah County, ID",16009,20-24 years,405
+"Benewah County, ID",16009,25-29 years,471
+"Benewah County, ID",16009,30-34 years,470
+"Benewah County, ID",16009,35-39 years,483
+"Benewah County, ID",16009,40-44 years,525
+"Benewah County, ID",16009,45-49 years,535
+"Benewah County, ID",16009,50-54 years,585
+"Benewah County, ID",16009,55-59 years,729
+"Benewah County, ID",16009,60-64 years ,860
+"Benewah County, ID",16009,65-69 years,782
+"Benewah County, ID",16009,70-74 years,608
+"Benewah County, ID",16009,75-79 years,424
+"Benewah County, ID",16009,80-84 years,240
+"Benewah County, ID",16009,85+ years,146
+"Bingham County, ID",16011,0-4 years,3343
+"Bingham County, ID",16011,5-9 years,4046
+"Bingham County, ID",16011,10-14 years,4581
+"Bingham County, ID",16011,15-19 years,3903
+"Bingham County, ID",16011,20-24 years,2802
+"Bingham County, ID",16011,25-29 years,2801
+"Bingham County, ID",16011,30-34 years,2891
+"Bingham County, ID",16011,35-39 years,3185
+"Bingham County, ID",16011,40-44 years,2999
+"Bingham County, ID",16011,45-49 years,2585
+"Bingham County, ID",16011,50-54 years,2413
+"Bingham County, ID",16011,55-59 years,2754
+"Bingham County, ID",16011,60-64 years ,2850
+"Bingham County, ID",16011,65-69 years,2488
+"Bingham County, ID",16011,70-74 years,1782
+"Bingham County, ID",16011,75-79 years,1226
+"Bingham County, ID",16011,80-84 years,761
+"Bingham County, ID",16011,85+ years,658
+"Blaine County, ID",16013,0-4 years,1068
+"Blaine County, ID",16013,5-9 years,1308
+"Blaine County, ID",16013,10-14 years,1627
+"Blaine County, ID",16013,15-19 years,1551
+"Blaine County, ID",16013,20-24 years,1139
+"Blaine County, ID",16013,25-29 years,1231
+"Blaine County, ID",16013,30-34 years,1319
+"Blaine County, ID",16013,35-39 years,1482
+"Blaine County, ID",16013,40-44 years,1579
+"Blaine County, ID",16013,45-49 years,1590
+"Blaine County, ID",16013,50-54 years,1616
+"Blaine County, ID",16013,55-59 years,1979
+"Blaine County, ID",16013,60-64 years ,1897
+"Blaine County, ID",16013,65-69 years,1697
+"Blaine County, ID",16013,70-74 years,1420
+"Blaine County, ID",16013,75-79 years,969
+"Blaine County, ID",16013,80-84 years,503
+"Blaine County, ID",16013,85+ years,352
+"Boise County, ID",16015,0-4 years,260
+"Boise County, ID",16015,5-9 years,283
+"Boise County, ID",16015,10-14 years,377
+"Boise County, ID",16015,15-19 years,404
+"Boise County, ID",16015,20-24 years,257
+"Boise County, ID",16015,25-29 years,257
+"Boise County, ID",16015,30-34 years,333
+"Boise County, ID",16015,35-39 years,390
+"Boise County, ID",16015,40-44 years,428
+"Boise County, ID",16015,45-49 years,442
+"Boise County, ID",16015,50-54 years,537
+"Boise County, ID",16015,55-59 years,713
+"Boise County, ID",16015,60-64 years ,864
+"Boise County, ID",16015,65-69 years,836
+"Boise County, ID",16015,70-74 years,628
+"Boise County, ID",16015,75-79 years,339
+"Boise County, ID",16015,80-84 years,162
+"Boise County, ID",16015,85+ years,137
+"Bonner County, ID",16017,0-4 years,2242
+"Bonner County, ID",16017,5-9 years,2538
+"Bonner County, ID",16017,10-14 years,2783
+"Bonner County, ID",16017,15-19 years,2531
+"Bonner County, ID",16017,20-24 years,1862
+"Bonner County, ID",16017,25-29 years,2107
+"Bonner County, ID",16017,30-34 years,2338
+"Bonner County, ID",16017,35-39 years,2628
+"Bonner County, ID",16017,40-44 years,2726
+"Bonner County, ID",16017,45-49 years,2696
+"Bonner County, ID",16017,50-54 years,2824
+"Bonner County, ID",16017,55-59 years,3621
+"Bonner County, ID",16017,60-64 years ,4373
+"Bonner County, ID",16017,65-69 years,4456
+"Bonner County, ID",16017,70-74 years,3449
+"Bonner County, ID",16017,75-79 years,2127
+"Bonner County, ID",16017,80-84 years,1201
+"Bonner County, ID",16017,85+ years,888
+"Bonneville County, ID",16019,0-4 years,9829
+"Bonneville County, ID",16019,5-9 years,10594
+"Bonneville County, ID",16019,10-14 years,11444
+"Bonneville County, ID",16019,15-19 years,9382
+"Bonneville County, ID",16019,20-24 years,7192
+"Bonneville County, ID",16019,25-29 years,8447
+"Bonneville County, ID",16019,30-34 years,8503
+"Bonneville County, ID",16019,35-39 years,8876
+"Bonneville County, ID",16019,40-44 years,7925
+"Bonneville County, ID",16019,45-49 years,6668
+"Bonneville County, ID",16019,50-54 years,6041
+"Bonneville County, ID",16019,55-59 years,6662
+"Bonneville County, ID",16019,60-64 years ,6372
+"Bonneville County, ID",16019,65-69 years,5729
+"Bonneville County, ID",16019,70-74 years,4529
+"Bonneville County, ID",16019,75-79 years,2927
+"Bonneville County, ID",16019,80-84 years,1903
+"Bonneville County, ID",16019,85+ years,1603
+"Boundary County, ID",16021,0-4 years,747
+"Boundary County, ID",16021,5-9 years,792
+"Boundary County, ID",16021,10-14 years,783
+"Boundary County, ID",16021,15-19 years,759
+"Boundary County, ID",16021,20-24 years,565
+"Boundary County, ID",16021,25-29 years,597
+"Boundary County, ID",16021,30-34 years,530
+"Boundary County, ID",16021,35-39 years,643
+"Boundary County, ID",16021,40-44 years,685
+"Boundary County, ID",16021,45-49 years,682
+"Boundary County, ID",16021,50-54 years,711
+"Boundary County, ID",16021,55-59 years,823
+"Boundary County, ID",16021,60-64 years ,957
+"Boundary County, ID",16021,65-69 years,1035
+"Boundary County, ID",16021,70-74 years,775
+"Boundary County, ID",16021,75-79 years,489
+"Boundary County, ID",16021,80-84 years,274
+"Boundary County, ID",16021,85+ years,266
+"Butte County, ID",16023,0-4 years,138
+"Butte County, ID",16023,5-9 years,159
+"Butte County, ID",16023,10-14 years,197
+"Butte County, ID",16023,15-19 years,177
+"Butte County, ID",16023,20-24 years,118
+"Butte County, ID",16023,25-29 years,111
+"Butte County, ID",16023,30-34 years,126
+"Butte County, ID",16023,35-39 years,134
+"Butte County, ID",16023,40-44 years,155
+"Butte County, ID",16023,45-49 years,126
+"Butte County, ID",16023,50-54 years,120
+"Butte County, ID",16023,55-59 years,173
+"Butte County, ID",16023,60-64 years ,216
+"Butte County, ID",16023,65-69 years,202
+"Butte County, ID",16023,70-74 years,177
+"Butte County, ID",16023,75-79 years,105
+"Butte County, ID",16023,80-84 years,80
+"Butte County, ID",16023,85+ years,63
+"Camas County, ID",16025,0-4 years,41
+"Camas County, ID",16025,5-9 years,64
+"Camas County, ID",16025,10-14 years,91
+"Camas County, ID",16025,15-19 years,66
+"Camas County, ID",16025,20-24 years,34
+"Camas County, ID",16025,25-29 years,36
+"Camas County, ID",16025,30-34 years,48
+"Camas County, ID",16025,35-39 years,69
+"Camas County, ID",16025,40-44 years,80
+"Camas County, ID",16025,45-49 years,70
+"Camas County, ID",16025,50-54 years,60
+"Camas County, ID",16025,55-59 years,87
+"Camas County, ID",16025,60-64 years ,95
+"Camas County, ID",16025,65-69 years,88
+"Camas County, ID",16025,70-74 years,82
+"Camas County, ID",16025,75-79 years,39
+"Camas County, ID",16025,80-84 years,17
+"Camas County, ID",16025,85+ years,22
+"Canyon County, ID",16027,0-4 years,15975
+"Canyon County, ID",16027,5-9 years,17909
+"Canyon County, ID",16027,10-14 years,19131
+"Canyon County, ID",16027,15-19 years,17739
+"Canyon County, ID",16027,20-24 years,15072
+"Canyon County, ID",16027,25-29 years,15973
+"Canyon County, ID",16027,30-34 years,15724
+"Canyon County, ID",16027,35-39 years,15508
+"Canyon County, ID",16027,40-44 years,14814
+"Canyon County, ID",16027,45-49 years,13592
+"Canyon County, ID",16027,50-54 years,12942
+"Canyon County, ID",16027,55-59 years,13139
+"Canyon County, ID",16027,60-64 years ,12445
+"Canyon County, ID",16027,65-69 years,11169
+"Canyon County, ID",16027,70-74 years,9237
+"Canyon County, ID",16027,75-79 years,6158
+"Canyon County, ID",16027,80-84 years,3374
+"Canyon County, ID",16027,85+ years,2813
+"Caribou County, ID",16029,0-4 years,480
+"Caribou County, ID",16029,5-9 years,547
+"Caribou County, ID",16029,10-14 years,619
+"Caribou County, ID",16029,15-19 years,518
+"Caribou County, ID",16029,20-24 years,348
+"Caribou County, ID",16029,25-29 years,340
+"Caribou County, ID",16029,30-34 years,400
+"Caribou County, ID",16029,35-39 years,473
+"Caribou County, ID",16029,40-44 years,499
+"Caribou County, ID",16029,45-49 years,367
+"Caribou County, ID",16029,50-54 years,351
+"Caribou County, ID",16029,55-59 years,406
+"Caribou County, ID",16029,60-64 years ,444
+"Caribou County, ID",16029,65-69 years,399
+"Caribou County, ID",16029,70-74 years,326
+"Caribou County, ID",16029,75-79 years,241
+"Caribou County, ID",16029,80-84 years,129
+"Caribou County, ID",16029,85+ years,128
+"Cassia County, ID",16031,0-4 years,1957
+"Cassia County, ID",16031,5-9 years,2077
+"Cassia County, ID",16031,10-14 years,2328
+"Cassia County, ID",16031,15-19 years,2100
+"Cassia County, ID",16031,20-24 years,1532
+"Cassia County, ID",16031,25-29 years,1550
+"Cassia County, ID",16031,30-34 years,1386
+"Cassia County, ID",16031,35-39 years,1588
+"Cassia County, ID",16031,40-44 years,1490
+"Cassia County, ID",16031,45-49 years,1320
+"Cassia County, ID",16031,50-54 years,1153
+"Cassia County, ID",16031,55-59 years,1280
+"Cassia County, ID",16031,60-64 years ,1394
+"Cassia County, ID",16031,65-69 years,1150
+"Cassia County, ID",16031,70-74 years,933
+"Cassia County, ID",16031,75-79 years,652
+"Cassia County, ID",16031,80-84 years,421
+"Cassia County, ID",16031,85+ years,388
+"Clark County, ID",16033,0-4 years,56
+"Clark County, ID",16033,5-9 years,42
+"Clark County, ID",16033,10-14 years,56
+"Clark County, ID",16033,15-19 years,54
+"Clark County, ID",16033,20-24 years,44
+"Clark County, ID",16033,25-29 years,42
+"Clark County, ID",16033,30-34 years,50
+"Clark County, ID",16033,35-39 years,61
+"Clark County, ID",16033,40-44 years,45
+"Clark County, ID",16033,45-49 years,49
+"Clark County, ID",16033,50-54 years,48
+"Clark County, ID",16033,55-59 years,54
+"Clark County, ID",16033,60-64 years ,46
+"Clark County, ID",16033,65-69 years,50
+"Clark County, ID",16033,70-74 years,31
+"Clark County, ID",16033,75-79 years,24
+"Clark County, ID",16033,80-84 years,21
+"Clark County, ID",16033,85+ years,19
+"Clearwater County, ID",16035,0-4 years,321
+"Clearwater County, ID",16035,5-9 years,337
+"Clearwater County, ID",16035,10-14 years,405
+"Clearwater County, ID",16035,15-19 years,454
+"Clearwater County, ID",16035,20-24 years,345
+"Clearwater County, ID",16035,25-29 years,509
+"Clearwater County, ID",16035,30-34 years,440
+"Clearwater County, ID",16035,35-39 years,485
+"Clearwater County, ID",16035,40-44 years,487
+"Clearwater County, ID",16035,45-49 years,458
+"Clearwater County, ID",16035,50-54 years,594
+"Clearwater County, ID",16035,55-59 years,725
+"Clearwater County, ID",16035,60-64 years ,755
+"Clearwater County, ID",16035,65-69 years,740
+"Clearwater County, ID",16035,70-74 years,697
+"Clearwater County, ID",16035,75-79 years,464
+"Clearwater County, ID",16035,80-84 years,277
+"Clearwater County, ID",16035,85+ years,257
+"Custer County, ID",16037,0-4 years,181
+"Custer County, ID",16037,5-9 years,200
+"Custer County, ID",16037,10-14 years,212
+"Custer County, ID",16037,15-19 years,198
+"Custer County, ID",16037,20-24 years,136
+"Custer County, ID",16037,25-29 years,156
+"Custer County, ID",16037,30-34 years,201
+"Custer County, ID",16037,35-39 years,215
+"Custer County, ID",16037,40-44 years,213
+"Custer County, ID",16037,45-49 years,239
+"Custer County, ID",16037,50-54 years,232
+"Custer County, ID",16037,55-59 years,322
+"Custer County, ID",16037,60-64 years ,440
+"Custer County, ID",16037,65-69 years,455
+"Custer County, ID",16037,70-74 years,397
+"Custer County, ID",16037,75-79 years,235
+"Custer County, ID",16037,80-84 years,116
+"Custer County, ID",16037,85+ years,118
+"Elmore County, ID",16039,0-4 years,2192
+"Elmore County, ID",16039,5-9 years,2034
+"Elmore County, ID",16039,10-14 years,1907
+"Elmore County, ID",16039,15-19 years,1770
+"Elmore County, ID",16039,20-24 years,2548
+"Elmore County, ID",16039,25-29 years,2588
+"Elmore County, ID",16039,30-34 years,2158
+"Elmore County, ID",16039,35-39 years,1849
+"Elmore County, ID",16039,40-44 years,1530
+"Elmore County, ID",16039,45-49 years,1348
+"Elmore County, ID",16039,50-54 years,1412
+"Elmore County, ID",16039,55-59 years,1729
+"Elmore County, ID",16039,60-64 years ,1587
+"Elmore County, ID",16039,65-69 years,1413
+"Elmore County, ID",16039,70-74 years,1056
+"Elmore County, ID",16039,75-79 years,734
+"Elmore County, ID",16039,80-84 years,472
+"Elmore County, ID",16039,85+ years,341
+"Franklin County, ID",16041,0-4 years,1038
+"Franklin County, ID",16041,5-9 years,1159
+"Franklin County, ID",16041,10-14 years,1402
+"Franklin County, ID",16041,15-19 years,1282
+"Franklin County, ID",16041,20-24 years,823
+"Franklin County, ID",16041,25-29 years,796
+"Franklin County, ID",16041,30-34 years,760
+"Franklin County, ID",16041,35-39 years,845
+"Franklin County, ID",16041,40-44 years,1012
+"Franklin County, ID",16041,45-49 years,793
+"Franklin County, ID",16041,50-54 years,737
+"Franklin County, ID",16041,55-59 years,787
+"Franklin County, ID",16041,60-64 years ,801
+"Franklin County, ID",16041,65-69 years,665
+"Franklin County, ID",16041,70-74 years,526
+"Franklin County, ID",16041,75-79 years,382
+"Franklin County, ID",16041,80-84 years,237
+"Franklin County, ID",16041,85+ years,224
+"Fremont County, ID",16043,0-4 years,804
+"Fremont County, ID",16043,5-9 years,817
+"Fremont County, ID",16043,10-14 years,965
+"Fremont County, ID",16043,15-19 years,1058
+"Fremont County, ID",16043,20-24 years,807
+"Fremont County, ID",16043,25-29 years,822
+"Fremont County, ID",16043,30-34 years,722
+"Fremont County, ID",16043,35-39 years,822
+"Fremont County, ID",16043,40-44 years,897
+"Fremont County, ID",16043,45-49 years,760
+"Fremont County, ID",16043,50-54 years,801
+"Fremont County, ID",16043,55-59 years,853
+"Fremont County, ID",16043,60-64 years ,924
+"Fremont County, ID",16043,65-69 years,824
+"Fremont County, ID",16043,70-74 years,600
+"Fremont County, ID",16043,75-79 years,459
+"Fremont County, ID",16043,80-84 years,267
+"Fremont County, ID",16043,85+ years,202
+"Gem County, ID",16045,0-4 years,1084
+"Gem County, ID",16045,5-9 years,1234
+"Gem County, ID",16045,10-14 years,1327
+"Gem County, ID",16045,15-19 years,1155
+"Gem County, ID",16045,20-24 years,923
+"Gem County, ID",16045,25-29 years,966
+"Gem County, ID",16045,30-34 years,1040
+"Gem County, ID",16045,35-39 years,1127
+"Gem County, ID",16045,40-44 years,1044
+"Gem County, ID",16045,45-49 years,1027
+"Gem County, ID",16045,50-54 years,1127
+"Gem County, ID",16045,55-59 years,1406
+"Gem County, ID",16045,60-64 years ,1534
+"Gem County, ID",16045,65-69 years,1393
+"Gem County, ID",16045,70-74 years,1163
+"Gem County, ID",16045,75-79 years,834
+"Gem County, ID",16045,80-84 years,474
+"Gem County, ID",16045,85+ years,400
+"Gooding County, ID",16047,0-4 years,1021
+"Gooding County, ID",16047,5-9 years,1184
+"Gooding County, ID",16047,10-14 years,1293
+"Gooding County, ID",16047,15-19 years,1143
+"Gooding County, ID",16047,20-24 years,889
+"Gooding County, ID",16047,25-29 years,943
+"Gooding County, ID",16047,30-34 years,905
+"Gooding County, ID",16047,35-39 years,880
+"Gooding County, ID",16047,40-44 years,933
+"Gooding County, ID",16047,45-49 years,909
+"Gooding County, ID",16047,50-54 years,869
+"Gooding County, ID",16047,55-59 years,927
+"Gooding County, ID",16047,60-64 years ,950
+"Gooding County, ID",16047,65-69 years,911
+"Gooding County, ID",16047,70-74 years,727
+"Gooding County, ID",16047,75-79 years,523
+"Gooding County, ID",16047,80-84 years,326
+"Gooding County, ID",16047,85+ years,310
+"Idaho County, ID",16049,0-4 years,780
+"Idaho County, ID",16049,5-9 years,899
+"Idaho County, ID",16049,10-14 years,993
+"Idaho County, ID",16049,15-19 years,884
+"Idaho County, ID",16049,20-24 years,785
+"Idaho County, ID",16049,25-29 years,726
+"Idaho County, ID",16049,30-34 years,708
+"Idaho County, ID",16049,35-39 years,865
+"Idaho County, ID",16049,40-44 years,809
+"Idaho County, ID",16049,45-49 years,821
+"Idaho County, ID",16049,50-54 years,865
+"Idaho County, ID",16049,55-59 years,1206
+"Idaho County, ID",16049,60-64 years ,1500
+"Idaho County, ID",16049,65-69 years,1577
+"Idaho County, ID",16049,70-74 years,1281
+"Idaho County, ID",16049,75-79 years,871
+"Idaho County, ID",16049,80-84 years,538
+"Idaho County, ID",16049,85+ years,453
+"Jefferson County, ID",16051,0-4 years,2402
+"Jefferson County, ID",16051,5-9 years,2854
+"Jefferson County, ID",16051,10-14 years,3289
+"Jefferson County, ID",16051,15-19 years,2634
+"Jefferson County, ID",16051,20-24 years,1781
+"Jefferson County, ID",16051,25-29 years,1682
+"Jefferson County, ID",16051,30-34 years,1853
+"Jefferson County, ID",16051,35-39 years,2191
+"Jefferson County, ID",16051,40-44 years,2174
+"Jefferson County, ID",16051,45-49 years,1721
+"Jefferson County, ID",16051,50-54 years,1506
+"Jefferson County, ID",16051,55-59 years,1588
+"Jefferson County, ID",16051,60-64 years ,1694
+"Jefferson County, ID",16051,65-69 years,1381
+"Jefferson County, ID",16051,70-74 years,1003
+"Jefferson County, ID",16051,75-79 years,636
+"Jefferson County, ID",16051,80-84 years,375
+"Jefferson County, ID",16051,85+ years,291
+"Jerome County, ID",16053,0-4 years,1827
+"Jerome County, ID",16053,5-9 years,1975
+"Jerome County, ID",16053,10-14 years,2281
+"Jerome County, ID",16053,15-19 years,1878
+"Jerome County, ID",16053,20-24 years,1398
+"Jerome County, ID",16053,25-29 years,1528
+"Jerome County, ID",16053,30-34 years,1654
+"Jerome County, ID",16053,35-39 years,1626
+"Jerome County, ID",16053,40-44 years,1492
+"Jerome County, ID",16053,45-49 years,1324
+"Jerome County, ID",16053,50-54 years,1323
+"Jerome County, ID",16053,55-59 years,1399
+"Jerome County, ID",16053,60-64 years ,1341
+"Jerome County, ID",16053,65-69 years,1160
+"Jerome County, ID",16053,70-74 years,791
+"Jerome County, ID",16053,75-79 years,604
+"Jerome County, ID",16053,80-84 years,348
+"Jerome County, ID",16053,85+ years,273
+"Kootenai County, ID",16055,0-4 years,9832
+"Kootenai County, ID",16055,5-9 years,10899
+"Kootenai County, ID",16055,10-14 years,11583
+"Kootenai County, ID",16055,15-19 years,10511
+"Kootenai County, ID",16055,20-24 years,8743
+"Kootenai County, ID",16055,25-29 years,10675
+"Kootenai County, ID",16055,30-34 years,11300
+"Kootenai County, ID",16055,35-39 years,11205
+"Kootenai County, ID",16055,40-44 years,10566
+"Kootenai County, ID",16055,45-49 years,9984
+"Kootenai County, ID",16055,50-54 years,10448
+"Kootenai County, ID",16055,55-59 years,11553
+"Kootenai County, ID",16055,60-64 years ,12039
+"Kootenai County, ID",16055,65-69 years,11307
+"Kootenai County, ID",16055,70-74 years,9493
+"Kootenai County, ID",16055,75-79 years,6045
+"Kootenai County, ID",16055,80-84 years,3601
+"Kootenai County, ID",16055,85+ years,2862
+"Latah County, ID",16057,0-4 years,2035
+"Latah County, ID",16057,5-9 years,2025
+"Latah County, ID",16057,10-14 years,2133
+"Latah County, ID",16057,15-19 years,3543
+"Latah County, ID",16057,20-24 years,6366
+"Latah County, ID",16057,25-29 years,3240
+"Latah County, ID",16057,30-34 years,2513
+"Latah County, ID",16057,35-39 years,2310
+"Latah County, ID",16057,40-44 years,2030
+"Latah County, ID",16057,45-49 years,1850
+"Latah County, ID",16057,50-54 years,1796
+"Latah County, ID",16057,55-59 years,2053
+"Latah County, ID",16057,60-64 years ,2015
+"Latah County, ID",16057,65-69 years,2012
+"Latah County, ID",16057,70-74 years,1524
+"Latah County, ID",16057,75-79 years,989
+"Latah County, ID",16057,80-84 years,578
+"Latah County, ID",16057,85+ years,599
+"Lemhi County, ID",16059,0-4 years,381
+"Lemhi County, ID",16059,5-9 years,366
+"Lemhi County, ID",16059,10-14 years,456
+"Lemhi County, ID",16059,15-19 years,392
+"Lemhi County, ID",16059,20-24 years,257
+"Lemhi County, ID",16059,25-29 years,340
+"Lemhi County, ID",16059,30-34 years,354
+"Lemhi County, ID",16059,35-39 years,462
+"Lemhi County, ID",16059,40-44 years,393
+"Lemhi County, ID",16059,45-49 years,346
+"Lemhi County, ID",16059,50-54 years,413
+"Lemhi County, ID",16059,55-59 years,570
+"Lemhi County, ID",16059,60-64 years ,733
+"Lemhi County, ID",16059,65-69 years,787
+"Lemhi County, ID",16059,70-74 years,693
+"Lemhi County, ID",16059,75-79 years,486
+"Lemhi County, ID",16059,80-84 years,255
+"Lemhi County, ID",16059,85+ years,264
+"Lewis County, ID",16061,0-4 years,173
+"Lewis County, ID",16061,5-9 years,214
+"Lewis County, ID",16061,10-14 years,249
+"Lewis County, ID",16061,15-19 years,230
+"Lewis County, ID",16061,20-24 years,124
+"Lewis County, ID",16061,25-29 years,150
+"Lewis County, ID",16061,30-34 years,152
+"Lewis County, ID",16061,35-39 years,189
+"Lewis County, ID",16061,40-44 years,176
+"Lewis County, ID",16061,45-49 years,154
+"Lewis County, ID",16061,50-54 years,186
+"Lewis County, ID",16061,55-59 years,241
+"Lewis County, ID",16061,60-64 years ,316
+"Lewis County, ID",16061,65-69 years,304
+"Lewis County, ID",16061,70-74 years,271
+"Lewis County, ID",16061,75-79 years,184
+"Lewis County, ID",16061,80-84 years,126
+"Lewis County, ID",16061,85+ years,92
+"Lincoln County, ID",16063,0-4 years,323
+"Lincoln County, ID",16063,5-9 years,363
+"Lincoln County, ID",16063,10-14 years,437
+"Lincoln County, ID",16063,15-19 years,412
+"Lincoln County, ID",16063,20-24 years,306
+"Lincoln County, ID",16063,25-29 years,320
+"Lincoln County, ID",16063,30-34 years,295
+"Lincoln County, ID",16063,35-39 years,313
+"Lincoln County, ID",16063,40-44 years,373
+"Lincoln County, ID",16063,45-49 years,303
+"Lincoln County, ID",16063,50-54 years,262
+"Lincoln County, ID",16063,55-59 years,353
+"Lincoln County, ID",16063,60-64 years ,306
+"Lincoln County, ID",16063,65-69 years,279
+"Lincoln County, ID",16063,70-74 years,208
+"Lincoln County, ID",16063,75-79 years,127
+"Lincoln County, ID",16063,80-84 years,81
+"Lincoln County, ID",16063,85+ years,72
+"Madison County, ID",16065,0-4 years,4944
+"Madison County, ID",16065,5-9 years,3326
+"Madison County, ID",16065,10-14 years,3610
+"Madison County, ID",16065,15-19 years,6169
+"Madison County, ID",16065,20-24 years,12113
+"Madison County, ID",16065,25-29 years,5584
+"Madison County, ID",16065,30-34 years,2448
+"Madison County, ID",16065,35-39 years,2102
+"Madison County, ID",16065,40-44 years,2058
+"Madison County, ID",16065,45-49 years,1786
+"Madison County, ID",16065,50-54 years,1510
+"Madison County, ID",16065,55-59 years,1655
+"Madison County, ID",16065,60-64 years ,1623
+"Madison County, ID",16065,65-69 years,1341
+"Madison County, ID",16065,70-74 years,1018
+"Madison County, ID",16065,75-79 years,729
+"Madison County, ID",16065,80-84 years,465
+"Madison County, ID",16065,85+ years,395
+"Minidoka County, ID",16067,0-4 years,1595
+"Minidoka County, ID",16067,5-9 years,1795
+"Minidoka County, ID",16067,10-14 years,1886
+"Minidoka County, ID",16067,15-19 years,1537
+"Minidoka County, ID",16067,20-24 years,1299
+"Minidoka County, ID",16067,25-29 years,1464
+"Minidoka County, ID",16067,30-34 years,1319
+"Minidoka County, ID",16067,35-39 years,1291
+"Minidoka County, ID",16067,40-44 years,1236
+"Minidoka County, ID",16067,45-49 years,1105
+"Minidoka County, ID",16067,50-54 years,1149
+"Minidoka County, ID",16067,55-59 years,1253
+"Minidoka County, ID",16067,60-64 years ,1306
+"Minidoka County, ID",16067,65-69 years,1063
+"Minidoka County, ID",16067,70-74 years,896
+"Minidoka County, ID",16067,75-79 years,645
+"Minidoka County, ID",16067,80-84 years,427
+"Minidoka County, ID",16067,85+ years,408
+"Nez Perce County, ID",16069,0-4 years,2377
+"Nez Perce County, ID",16069,5-9 years,2592
+"Nez Perce County, ID",16069,10-14 years,2534
+"Nez Perce County, ID",16069,15-19 years,2544
+"Nez Perce County, ID",16069,20-24 years,2476
+"Nez Perce County, ID",16069,25-29 years,2689
+"Nez Perce County, ID",16069,30-34 years,2758
+"Nez Perce County, ID",16069,35-39 years,2566
+"Nez Perce County, ID",16069,40-44 years,2375
+"Nez Perce County, ID",16069,45-49 years,2397
+"Nez Perce County, ID",16069,50-54 years,2523
+"Nez Perce County, ID",16069,55-59 years,2768
+"Nez Perce County, ID",16069,60-64 years ,2985
+"Nez Perce County, ID",16069,65-69 years,2618
+"Nez Perce County, ID",16069,70-74 years,2222
+"Nez Perce County, ID",16069,75-79 years,1552
+"Nez Perce County, ID",16069,80-84 years,1031
+"Nez Perce County, ID",16069,85+ years,1081
+"Oneida County, ID",16071,0-4 years,294
+"Oneida County, ID",16071,5-9 years,323
+"Oneida County, ID",16071,10-14 years,402
+"Oneida County, ID",16071,15-19 years,338
+"Oneida County, ID",16071,20-24 years,215
+"Oneida County, ID",16071,25-29 years,211
+"Oneida County, ID",16071,30-34 years,203
+"Oneida County, ID",16071,35-39 years,273
+"Oneida County, ID",16071,40-44 years,282
+"Oneida County, ID",16071,45-49 years,240
+"Oneida County, ID",16071,50-54 years,232
+"Oneida County, ID",16071,55-59 years,281
+"Oneida County, ID",16071,60-64 years ,343
+"Oneida County, ID",16071,65-69 years,280
+"Oneida County, ID",16071,70-74 years,241
+"Oneida County, ID",16071,75-79 years,169
+"Oneida County, ID",16071,80-84 years,117
+"Oneida County, ID",16071,85+ years,110
+"Owyhee County, ID",16073,0-4 years,743
+"Owyhee County, ID",16073,5-9 years,789
+"Owyhee County, ID",16073,10-14 years,931
+"Owyhee County, ID",16073,15-19 years,881
+"Owyhee County, ID",16073,20-24 years,690
+"Owyhee County, ID",16073,25-29 years,702
+"Owyhee County, ID",16073,30-34 years,647
+"Owyhee County, ID",16073,35-39 years,714
+"Owyhee County, ID",16073,40-44 years,709
+"Owyhee County, ID",16073,45-49 years,687
+"Owyhee County, ID",16073,50-54 years,713
+"Owyhee County, ID",16073,55-59 years,813
+"Owyhee County, ID",16073,60-64 years ,832
+"Owyhee County, ID",16073,65-69 years,737
+"Owyhee County, ID",16073,70-74 years,558
+"Owyhee County, ID",16073,75-79 years,391
+"Owyhee County, ID",16073,80-84 years,236
+"Owyhee County, ID",16073,85+ years,205
+"Payette County, ID",16075,0-4 years,1702
+"Payette County, ID",16075,5-9 years,1835
+"Payette County, ID",16075,10-14 years,1969
+"Payette County, ID",16075,15-19 years,1750
+"Payette County, ID",16075,20-24 years,1290
+"Payette County, ID",16075,25-29 years,1449
+"Payette County, ID",16075,30-34 years,1528
+"Payette County, ID",16075,35-39 years,1483
+"Payette County, ID",16075,40-44 years,1475
+"Payette County, ID",16075,45-49 years,1503
+"Payette County, ID",16075,50-54 years,1544
+"Payette County, ID",16075,55-59 years,1665
+"Payette County, ID",16075,60-64 years ,1603
+"Payette County, ID",16075,65-69 years,1484
+"Payette County, ID",16075,70-74 years,1288
+"Payette County, ID",16075,75-79 years,956
+"Payette County, ID",16075,80-84 years,632
+"Payette County, ID",16075,85+ years,433
+"Power County, ID",16077,0-4 years,600
+"Power County, ID",16077,5-9 years,693
+"Power County, ID",16077,10-14 years,752
+"Power County, ID",16077,15-19 years,596
+"Power County, ID",16077,20-24 years,439
+"Power County, ID",16077,25-29 years,440
+"Power County, ID",16077,30-34 years,500
+"Power County, ID",16077,35-39 years,478
+"Power County, ID",16077,40-44 years,420
+"Power County, ID",16077,45-49 years,352
+"Power County, ID",16077,50-54 years,375
+"Power County, ID",16077,55-59 years,489
+"Power County, ID",16077,60-64 years ,465
+"Power County, ID",16077,65-69 years,447
+"Power County, ID",16077,70-74 years,320
+"Power County, ID",16077,75-79 years,244
+"Power County, ID",16077,80-84 years,150
+"Power County, ID",16077,85+ years,119
+"Shoshone County, ID",16079,0-4 years,777
+"Shoshone County, ID",16079,5-9 years,733
+"Shoshone County, ID",16079,10-14 years,728
+"Shoshone County, ID",16079,15-19 years,695
+"Shoshone County, ID",16079,20-24 years,598
+"Shoshone County, ID",16079,25-29 years,744
+"Shoshone County, ID",16079,30-34 years,732
+"Shoshone County, ID",16079,35-39 years,666
+"Shoshone County, ID",16079,40-44 years,698
+"Shoshone County, ID",16079,45-49 years,731
+"Shoshone County, ID",16079,50-54 years,847
+"Shoshone County, ID",16079,55-59 years,988
+"Shoshone County, ID",16079,60-64 years ,1111
+"Shoshone County, ID",16079,65-69 years,1085
+"Shoshone County, ID",16079,70-74 years,860
+"Shoshone County, ID",16079,75-79 years,539
+"Shoshone County, ID",16079,80-84 years,373
+"Shoshone County, ID",16079,85+ years,284
+"Teton County, ID",16081,0-4 years,646
+"Teton County, ID",16081,5-9 years,789
+"Teton County, ID",16081,10-14 years,882
+"Teton County, ID",16081,15-19 years,676
+"Teton County, ID",16081,20-24 years,532
+"Teton County, ID",16081,25-29 years,696
+"Teton County, ID",16081,30-34 years,783
+"Teton County, ID",16081,35-39 years,940
+"Teton County, ID",16081,40-44 years,1015
+"Teton County, ID",16081,45-49 years,916
+"Teton County, ID",16081,50-54 years,830
+"Teton County, ID",16081,55-59 years,756
+"Teton County, ID",16081,60-64 years ,750
+"Teton County, ID",16081,65-69 years,653
+"Teton County, ID",16081,70-74 years,458
+"Teton County, ID",16081,75-79 years,205
+"Teton County, ID",16081,80-84 years,107
+"Teton County, ID",16081,85+ years,97
+"Twin Falls County, ID",16083,0-4 years,6150
+"Twin Falls County, ID",16083,5-9 years,6821
+"Twin Falls County, ID",16083,10-14 years,7550
+"Twin Falls County, ID",16083,15-19 years,6261
+"Twin Falls County, ID",16083,20-24 years,5241
+"Twin Falls County, ID",16083,25-29 years,6024
+"Twin Falls County, ID",16083,30-34 years,6306
+"Twin Falls County, ID",16083,35-39 years,6345
+"Twin Falls County, ID",16083,40-44 years,5653
+"Twin Falls County, ID",16083,45-49 years,4798
+"Twin Falls County, ID",16083,50-54 years,4599
+"Twin Falls County, ID",16083,55-59 years,5106
+"Twin Falls County, ID",16083,60-64 years ,5174
+"Twin Falls County, ID",16083,65-69 years,4641
+"Twin Falls County, ID",16083,70-74 years,3793
+"Twin Falls County, ID",16083,75-79 years,2636
+"Twin Falls County, ID",16083,80-84 years,1706
+"Twin Falls County, ID",16083,85+ years,1475
+"Valley County, ID",16085,0-4 years,511
+"Valley County, ID",16085,5-9 years,590
+"Valley County, ID",16085,10-14 years,649
+"Valley County, ID",16085,15-19 years,561
+"Valley County, ID",16085,20-24 years,412
+"Valley County, ID",16085,25-29 years,510
+"Valley County, ID",16085,30-34 years,638
+"Valley County, ID",16085,35-39 years,727
+"Valley County, ID",16085,40-44 years,787
+"Valley County, ID",16085,45-49 years,700
+"Valley County, ID",16085,50-54 years,717
+"Valley County, ID",16085,55-59 years,858
+"Valley County, ID",16085,60-64 years ,1054
+"Valley County, ID",16085,65-69 years,1221
+"Valley County, ID",16085,70-74 years,919
+"Valley County, ID",16085,75-79 years,531
+"Valley County, ID",16085,80-84 years,249
+"Valley County, ID",16085,85+ years,204
+"Washington County, ID",16087,0-4 years,544
+"Washington County, ID",16087,5-9 years,635
+"Washington County, ID",16087,10-14 years,725
+"Washington County, ID",16087,15-19 years,719
+"Washington County, ID",16087,20-24 years,516
+"Washington County, ID",16087,25-29 years,471
+"Washington County, ID",16087,30-34 years,465
+"Washington County, ID",16087,35-39 years,531
+"Washington County, ID",16087,40-44 years,547
+"Washington County, ID",16087,45-49 years,581
+"Washington County, ID",16087,50-54 years,586
+"Washington County, ID",16087,55-59 years,705
+"Washington County, ID",16087,60-64 years ,819
+"Washington County, ID",16087,65-69 years,842
+"Washington County, ID",16087,70-74 years,763
+"Washington County, ID",16087,75-79 years,491
+"Washington County, ID",16087,80-84 years,347
+"Washington County, ID",16087,85+ years,257
